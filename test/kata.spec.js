@@ -32,13 +32,29 @@ describe('Proxy Pattern', () => {
 })
 
 
-// describe('State Pattern', () => {
-    
-//     test('Domicilio Fuera de Rango', () => {
-//         expect(() => realizarDom(pedidoInStock, rangoKmOut)).toThrow(Error);
-//     })
+describe('State Pattern', () => {
+ 
+    const precio = 15000;
 
-//     test('Productos no Disponibles', () => {
-//         expect(() => realizarDom(pedidoOutOfStock, rangoKmIn)).toThrow(Error);
-//     })
-// })
+    test('Recargo Diurno Normal', () => {
+        changeState('DiurnoNormal');
+        expect(() => prepararDomicilio(precio)).toBe('Embalaje: Normal, Precio Domicilio: 15000, Recargos: 0');
+    })
+
+    
+    test('Recargo Diurno con Lluvia', () => {
+        changeState('DiurnoLluvioso');
+        expect(() => prepararDomicilio(precio)).toBe('Embalaje: Impermeable, Precio Domicilio: 15000, Recargos: 0');
+    })
+
+    
+    test('Recargo Nocturno Normal', () => {
+        changeState('NocturnoNormal');
+        expect(() => prepararDomicilio(precio)).toBe('Embalaje: Normal, Precio Domicilio: 15000, Recargos: 10000');
+    })
+
+    test('Recargo Nocturno con Lluvia', () => {
+        changeState('NocturnoLluvioso');
+        expect(() => prepararDomicilio(precio)).toBe('Embalaje: Impermeable, Precio Domicilio: 15000, Recargos: 10000');
+    })
+})
