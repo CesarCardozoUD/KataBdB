@@ -1,0 +1,22 @@
+{
+  "name": "katabdb",
+  "version": "1.0.0",
+  "description": "BdB SemiSenior Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CesarCardozoUD/KataBdB.git"
+  },
+  "author": "Cesar Cardozo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CesarCardozoUD/KataBdB/issues"
+  },
+  "homepage": "https://github.com/CesarCardozoUD/KataBdB#readme",
+  "devDependencies": {
+    "jest": "^29.2.1"
+  }
+}
