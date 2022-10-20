@@ -8,6 +8,5 @@ jobs:
   ci_to_master: 
     runs-on: ubuntu-latest
     steps:
-      - run: npm ci
       - run: npm test
       - run: npm run build
