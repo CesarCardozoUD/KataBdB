@@ -28,7 +28,7 @@ class DomiciliosPool{
             domiciliariosDisponibles.delete(firstKey);
             if(dom.validate()){
                 domiciliariosOcupados.set(firstKey, dom);
-                return [firstKey,dom];
+                return [firstKey, dom];
             }else{
                 domiciliariosDisponibles.set(firstKey, dom);
                 domiciliariosOcupados.delete(firstKey);

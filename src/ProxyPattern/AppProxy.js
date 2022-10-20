@@ -39,7 +39,6 @@ class AppProxy extends AppInterface{
     }
 
     realizarDom(pedido, rango){
-        console.error('asd');
         if(this.verificarCobertura(rango)){
             if(this.verificarDisponibilidad(pedido)){
                 serv.realizarDom(pedido, rango);
@@ -52,5 +51,3 @@ class AppProxy extends AppInterface{
         //throw new Error("Method not implemented.");
     }
 }
-
-module.export = new AppProxy().realizarDom(pedido, rango);

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./StatePattern/AppState.js"></script>
+        <script src="./ProxyPattern/AppProxy.js"></script>
+        <script src="./ObjectPool/AppObjectPool.js"></script>
+    </head>
+
+
+    <!-- Prueba Proxy -->
+    <script>
+        console.log('PRUEBA PROXY');
+        var pedido = new Map();
+        pedido.set('Manzana', 1);
+        pedido.set('Pera', 2);
+        var appProxyObj = new AppProxy();
+        appProxyObj.realizarDom(pedido, 15);
+    </script>
+
+    <!-- Prueba State -->
+    <script>
+        console.log('PRUEBA STATE');
+        const precio = 15000;
+        var appStateObj = new AppDomicilios();
+        appStateObj.changeState('DiurnoLluvioso');
+        console.log(appStateObj.prepararDomicilio(precio));
+        appStateObj.changeState('NocturnoNormal');
+        console.log(appStateObj.prepararDomicilio(precio));
+    </script>
+    
+    <!-- Prueba ObjectPool -->
+    <script>
+        console.log('PRUEBA ObjectPool');
+        var pool = new DomiciliosPool()
+        var dummy_01 = pool.crearDomicilio();
+        var dummy_02 = pool.crearDomicilio();
+        var dummy_03 = pool.crearDomicilio();
+        dummy_02[1].enviarDomicilio(dummy_02[0])
+    </script>
+</html>
+
