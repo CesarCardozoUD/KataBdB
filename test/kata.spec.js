@@ -1,13 +1,34 @@
 //const {realizarDom} = require('../src/ProxyPattern/AppProxy')
 
+
+
+// Pruebas unitarias Object Pool
+
 describe('ObjectPool Pattern', () => {
     
-    test('Dummy Test 1', () => {
-        expect(true).toBe(true);
+    var pool = new DomiciliosPool()
+    [dummyId_01, dummyObj_01] = pool.crearDomicilio();
+    [dummyId_02, dummyObj_02] = pool.crearDomicilio();
+    [dummyId_03, dummyObj_03] = pool.crearDomicilio();
+
+    test('Creacion de Domicilios', () => {
+        [dummyId_04, dummyObj_04] = pool.crearDomicilio();
+        expect(dummyId_04).toBe('Dom4');
     })
 
+    test('Envio de Domicilios', () => {
+        expect(() => dummyObj_02.enviardomicilio(dummyId_02)).not.toThrow(Error);
+    })
+
+    test('Reusar domiciliario', () => {
+        [dummyId_r, dummyObj_r] = pool.crearDomicilio();
+        expect(dummyId_r).toBe('Dom2');
+    })
 })
 
+
+
+// Pruebas unitarias Proxy
 
 describe('Proxy Pattern', () => {
     
@@ -32,6 +53,9 @@ describe('Proxy Pattern', () => {
 })
 
 
+
+// Pruebas unitarias State
+
 describe('State Pattern', () => {
  
     const precio = 15000;
@@ -40,13 +64,11 @@ describe('State Pattern', () => {
         changeState('DiurnoNormal');
         expect(() => prepararDomicilio(precio)).toBe('Embalaje: Normal, Precio Domicilio: 15000, Recargos: 0');
     })
-
     
     test('Recargo Diurno con Lluvia', () => {
         changeState('DiurnoLluvioso');
         expect(() => prepararDomicilio(precio)).toBe('Embalaje: Impermeable, Precio Domicilio: 15000, Recargos: 0');
     })
-
     
     test('Recargo Nocturno Normal', () => {
         changeState('NocturnoNormal');
