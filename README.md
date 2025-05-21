@@ -1,5 +1,5 @@
 # FullStack developer candidates tech challenge for semi-senior
-## Banco de Bogotá
+
 ---------------------------------------------------------------
 Presentado por: Cesar Cardozo
 
